@@ -1,0 +1,20 @@
+<input type="text" [(ngModel)]="pricee">
+<div *ngFor="let p of listProduct, let i=index">
+    <div *ngIf="p.price<pricee || pricee==null">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Title : {{p.title}}</h5>
+
+                <h5 class="card-title">Price :{{p.price}}</h5>
+                <p class="card-text">{{p.quantitee}}</p>
+
+                <p class="card-text">{{p.like}}</p>
+                <a href="#" class="btn btn-primary" (click)="incrementlike(i)">like</a>
+
+                <button class="btn btn-primary" [disabled]="p.quantitee==0" (click)=" decrementqte(i) ">buy</button>
+            </div>
+        </div>
+    </div>
+
+</div>
