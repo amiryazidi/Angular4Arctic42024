@@ -5,4 +5,5 @@ export
   price!: number;
   quantitee!: number;
   like!: number;
+  image!: string;
  }

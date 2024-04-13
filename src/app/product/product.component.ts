@@ -10,8 +10,8 @@ export class ProductComponent {
   pricee!: number;
   listProduct : Product[] = [
 
-    {id: 1, title: 'Product 1', price: 100, quantitee: 10, like: 0},
-    {id: 2, title: 'Product 2', price: 200, quantitee: 20, like: 0},
+    {id: 1, title: 'Product 1', price: 100, quantitee: 10, like: 0, image:"../../assets/images/1.png"},
+    {id: 2, title: 'Product 2', price: 200, quantitee: 20, like: 0, image:"../../assets/images/1.png"},
   ]
 
   incrementlike(i: number){
