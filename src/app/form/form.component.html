@@ -1,0 +1,53 @@
+<p>formControl</p>
+
+<label>login</label>
+<input class="form-control" type="text" [formControl]="login">
+
+<label>Password</label>
+<input class="form-control" type="text" [formControl]="pwd">
+
+
+<input class="btn btn-info" type="submit" value="save" (click)="save()" [disabled]="login.invalid || pwd.invalid">
+
+
+<hr>
+<br>
+<p>formGroup</p>
+<form [formGroup]="RegisterForm">
+    <label>nom</label>
+    <input class="form-control" type="text" formControlName="nom">
+
+    <div class="alert alert-danger" *ngIf="this.RegisterForm.controls['nom'].invalid && this.RegisterForm.controls['nom'].touched">
+        <p *ngIf="this.RegisterForm.controls['nom'].hasError('required')">nom est obligatoire</p>
+        <p *ngIf="this.RegisterForm.controls['nom'].hasError('minlength')">nom doit etre min 6 caracteres</p>
+    </div>
+
+    <label>prenom</label>
+    <input class="form-control" type="text" formControlName="prenom">
+
+    <div class="alert alert-danger">
+
+        <p>prenom est obligatoire</p>
+        <p>prenom doit etre min 6 caracteres</p>
+    </div>
+    <label>adress</label>
+    <input class="form-control" type="text" formControlName="adress">
+
+    <div class="alert alert-danger">
+
+        <p>adress est obligatoire</p>
+        <p>adrees doit respecté les regles</p>
+    </div>
+    <label>tel</label>
+    <input class="form-control" type="text" formControlName="tel">
+
+    <div class="alert alert-danger">
+
+        <p>tel est obligatoire</p>
+        <p>tel doit 8 chiffres</p>
+    </div>
+
+
+    <input class="btn btn-success" type="submit" value="save" (click)="save()" [disabled]="RegisterForm.invalid">
+
+</form>

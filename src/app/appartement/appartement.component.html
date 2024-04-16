@@ -1,0 +1,22 @@
+<input type="text" [(ngModel)]="surface">
+<table>
+    <tr>
+
+        <th> appartNum</th>
+        <th> FloorNum</th>
+        <th> Suraface</th>
+        <th> terrace</th>
+    </tr>
+    <tr *ngFor="let appart of listAppartmentsFiltered">
+
+        <ng-container *ngIf="appart.surface>=surface  || !surface">
+
+
+            <td>{{appart.id}}</td>
+            <td>{{appart.floorNum}}</td>
+            <td>{{appart.surface}}</td>
+            <td>{{appart.terrace}}</td>
+            <button class="btn btn-info" (click)="Like(appart)">Like</button>
+        </ng-container>
+    </tr>
+</table>
