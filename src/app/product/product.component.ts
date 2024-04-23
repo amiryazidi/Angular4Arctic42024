@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Product } from '../model/product';
+import { ProductService } from '../services/product.service';
+import { CalculService } from '../services/calcul.service';
+import { ConsumerProService } from '../services/consumer-pro.service';
 
 @Component({
   selector: 'app-product',
@@ -8,14 +11,22 @@ import { Product } from '../model/product';
 })
 export class ProductComponent {
   pricee!: number;
-  listProduct : Product[] = [
+  alert!:number
+  constructor(private ps:ProductService,private stat:CalculService,private cons:ConsumerProService) { }
 
-    {id: 1, title: 'Product 1', price: 100, quantitee: 10, like: 0, image:"../../assets/images/1.png"},
-    {id: 2, title: 'Product 2', price: 200, quantitee: 20, like: 0, image:"../../assets/images/1.png"},
-    {id: 3, title: 'Product 3', price: 300, quantitee: 50, like: 5, image:"../../assets/images/1.png"},
+  listProduct!: Product[];
 
-  ]
+  ngOnInit(){
+   // this.listProduct = this.ps.listProduct;
+    this.cons.getProducts().subscribe(
+      { next: (data) => this.listProduct=data,
+        error: (err) => console.log(err),
+        complete: () => console.log('done')
+      });
 
+    this.alert=this.stat.stat(this.listProduct,'quantitee',0)
+
+  }
   incrementlike(i: number){
     this.listProduct[i].like++;
 

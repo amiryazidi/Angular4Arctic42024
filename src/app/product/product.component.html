@@ -1,5 +1,4 @@
-<input type="text" [(ngModel)]="pricee">
-
+<input type="text" [(ngModel)]="pricee"> {{alert}}
 <div class="row">
     <div class="col" *ngFor="let p of listProduct, let i=index">
         <div *ngIf="p.price<pricee || pricee==null">
