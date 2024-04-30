@@ -3,7 +3,6 @@
     <div class="col" *ngFor="let p of listProduct, let i=index">
         <div *ngIf="p.price<pricee || pricee==null">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{p.image}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Title : {{p.title}}</h5>
 
@@ -12,9 +11,11 @@
 
                     <p class="card-text">Like : {{p.like}}</p>
                     <button class="btn btn-primary" (click)="incrementlike(i)">like</button>
+                    <button class="btn btn-danger" (click)="supp(p.id)">Delete</button>
 
                     <button class="btn btn-primary" [disabled]="p.quantitee==0" (click)=" decrementqte(i) ">buy</button>
                     <button class="btn btn-info" [routerLink]="['/detail',p.id]">Detail</button>
+                    <button class="btn btn-info" [routerLink]="['/updateP',p.id]">update</button>
                 </div>
             </div>
         </div>

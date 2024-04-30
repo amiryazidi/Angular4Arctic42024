@@ -35,4 +35,9 @@ export class ProductComponent {
     this.listProduct[i].quantitee--;
 
   }
+  supp(i: number){
+    this.cons.DeleteProduct(i).subscribe(
+      ()=>this.ngOnInit()
+    )
+  }
 }
